@@ -91,6 +91,10 @@ function startVideoProcessing() {
 
 //경고창 무한으로 안뜨게 변수 초기화 한거임 건들 ㄴㄴ
 let count = 0;
+let timer = false;
+var now1 = 0;
+var now2 = 0;
+var timeGap = 0;
 //메인 함수고 무한루프 돌꺼임 수정하고 싶으면 수환이한테 물어보셈
 function processVideo() {
   stats.begin();
@@ -134,11 +138,21 @@ function processVideo() {
   if (eyes.length == 0) {
     //length가 차원인데 감지가 안되면 배열 차원이 안생기겠지? 자세한건 인공지능 배우셈
     count += 1;
-    if (count > 30) {
-      alert("please forcus");
+    if (count > 1000) {
+      //오랜 시간 안보이면 감지
+      if (!timer) {
+        //타이머가 false면 경고하고 true로 반환해줌
+        alert("please forcus");
+        timer = true;
+        now1 = new Date();
+      } else {
+        now2 = new Date();
+        timeGap = now2.getTime() - now1.getTime(); //시간 계산
+        clickButton(timeGap);
+        timer = false;
+        count = 0; //사람이 보이면 카운트 초기화
+      }
     }
-  } else {
-    count = 0;
   }
   stats.end(); //음... 사실상 이건 실행 안되긴함 차원 계산 해야함...
   requestAnimationFrame(processVideo); //아까 위에 설명했는데 이건 자기 자신에 들어있어서 무한루프돌아감
@@ -159,6 +173,14 @@ function drawResults(ctx, results, color, size) {
       rect.height * yRatio
     );
   }
+}
+
+var list = document.getElementById("list");
+button.addEventListener("click", clickButton);
+function clickButton(tg) {
+  var timeCheck = document.createElement("li");
+  timeCheck.innerHTML = tg;
+  list.appendChild(timeCheck);
 }
 
 //비디오 처리 끄는거
