@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <div id="container">
+    <canvas class="center-block" id="canvasOutput" width=320 height=240></canvas>
+  </div>
+  <div class="text-center">
+    <!-- 체크하면 인식 시작합니다 -->
+    <input type="checkbox" id="face" name="classifier" value="face" checked>
+    <label for="face">face</label>
+  </div>
+  <div class="invisible">
+    <!-- 비디오가 기본적으로 있는데 숨겨뒀다가 체크하면 나오도록 해뒀음 -->
+    <video id="video" class="hidden">Your browser does not support the video tag.</video>
+  </div>
+  <!-- 크롬, 파이어폭스, 등등 RTC 적용 -->
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <!-- 차원 계산값 최대 tensor까지 -->
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <!-- 데이터 클라우드 저장값 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+  <script>
+    var Module = {
+      // opencv 계산값 불러온거
+       wasmBinaryFile: 'https://huningxin.github.io/opencv.js/build/wasm/opencv_js.wasm',
+      preRun: [function() {
+        Module.FS_createPreloadedFile('/', 'haarcascade_eye.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_eye.xml', true, false); //눈 데이터 계산값
+        Module.FS_createPreloadedFile('/', 'haarcascade_frontalface_default.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml', true, false); //전면 얼굴 데이터 계산값
+        Module.FS_createPreloadedFile('/', 'haarcascade_profileface.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_profileface.xml', true, false); //얼굴 계산값 추가
+      }],
+      _main: function() {opencvIsReady();} //여기서 부터 시작
+    };
+  </script>
+  <!-- wasmBinaryFile 변수에 불러온 계산값 글로벌로 적용시킴 -->
+  <script src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js"></script>
+  <!-- 이건 내가 만든거 -->
+  <script src="index.js"></script>
+</body>
+</html>
