@@ -138,7 +138,7 @@ function processVideo() {
   if (eyes.length == 0) {
     //length가 차원인데 감지가 안되면 배열 차원이 안생기겠지? 자세한건 인공지능 배우셈
     count += 1;
-    if (count > 1000) {
+    if (count > 30) {
       //오랜 시간 안보이면 감지
       if (!timer) {
         //타이머가 false면 경고하고 true로 반환해줌
