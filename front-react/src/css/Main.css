@@ -1,0 +1,33 @@
+.Main {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.Home1 {
+  font-size: 20px;
+  text-align: center;
+}
+.Home2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #e6b771;
+}
+.Home3 {
+  font-size: 30px;
+}
+.Home4 {
+  font-size: 20px;
+}
+
+.HomeStartBnt {
+  background-color: #e6b771;
+  font-size: 20px;
+  color: white;
+  border: 0;
+}
+.HomeStartBnt:hover {
+  background-color: #d1963e;
+}
