@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../../css/cam.css"
 const getWebcam = (callback) => {
   try {
     const constraints = {
@@ -17,9 +17,8 @@ const Styles = {
   Video: {
     width: "640px",
     height: "480px",
-    left: "-330px",
+    left : "5px",
     top: "10px",
-    background: "yellow",
     margin: "20px",
     position: "relative",
     borderRadius: "10px",
@@ -56,16 +55,24 @@ function CamButton() {
 
   return (
     <>
-      <div className="title">학습자가 학습중입니다.</div>
+      <div className="title" onClick={() => startOrStop()}> 
+        {playing ? "학습중입니다." : "학습을 중지했습니다."}{" "}
+      </div>
+      
       <div className="block">
-        <div className="video">
-          <video ref={videoRef} autoPlay style={Styles.Video} />
-        </div>
-        <div className="camBtn">
-          <button id="btn1" color="warning" onClick={() => startOrStop()}>
+        <video ref={videoRef} autoPlay style={Styles.Video} />
+        <button id="btn1" color="warning" onClick={() => startOrStop()}>
             {playing ? "Stop" : "Start"}{" "}
-          </button>
+        </button>
+
+        <div className="time_block">
+          총 공부시간   :   01:23:42
         </div>
+        
+        <div id="subject_block">
+          데이터베이스
+        </div>
+        <button id="btn_add">추가하기</button>
       </div>
     </>
   );

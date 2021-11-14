@@ -7,7 +7,7 @@ class MainCamera extends React.Component {
     return (
       <div>
         <Link to="/">
-          <h1>Monito</h1>
+          <h1 style={{textAlign:"center",}}>Monito</h1>
         </Link>
         <CamButton />
       </div>
