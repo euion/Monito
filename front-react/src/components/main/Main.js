@@ -11,9 +11,12 @@ class Main extends React.Component {
       <div className="Main3">
         <b className="Main2">MONITO</b>와 함께 학습해보세요
       </div><br/>
-      <div className="Main4">MONITO는 당신의 학습습관을 교정함과 동시에 다양한 피드백을 제공합니다.</div><br/>
-      <MainStartBtn/>
+      <div className="Mainbox">
+          <div className="Main4">MONITO는 당신의 학습습관을 교정함과 동시에 다양한 피드백을 제공합니다.</div><br/>
+          <MainStartBtn/>
+        </div>
       </div>
+      
     );
   }
 }
