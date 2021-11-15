@@ -8,7 +8,7 @@ class MainStartBtn extends Component {
     return (
       <div>
         <Link to="/MainCamera">
-          <button className="HomeStartBnt">시작하기</button>
+          <button className="MainStartBnt">시작하기</button>
         </Link>
       </div>
     );
