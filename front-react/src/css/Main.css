@@ -6,28 +6,28 @@
   border-radius: 4px;
   overflow: hidden;
 }
-.Home1 {
+.Main1 {
   font-size: 20px;
   text-align: center;
 }
-.Home2 {
+.Main2 {
   font-size: 40px;
   font-weight: bold;
   color: #e6b771;
 }
-.Home3 {
+.Main3 {
   font-size: 30px;
 }
-.Home4 {
+.Main4 {
   font-size: 20px;
 }
 
-.HomeStartBnt {
+.MainStartBnt {
   background-color: #e6b771;
   font-size: 20px;
   color: white;
   border: 0;
 }
-.HomeStartBnt:hover {
+.MainStartBnt:hover {
   background-color: #d1963e;
 }
