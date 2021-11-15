@@ -25,6 +25,8 @@
 
 .MainStartBnt {
   background-color: #e6b771;
+  padding: 15px 25px;
+  border-radius: 20px;
   font-size: 20px;
   color: white;
   border: 0;
@@ -34,6 +36,6 @@
 }
 .Mainbox {
   height: 350px;
-  background-color: #F1EDE1;
+  background-color: #f1ede1;
   margin-top: 50px;
 }

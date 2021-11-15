@@ -1,0 +1,29 @@
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+}
+.topnav-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.topnav-middle-container {
+  list-style: none;
+  display: flex;
+}
+.topnav-middle-container {
+  margin-right: 2vmin;
+}
+.topnav-middle-container li {
+  padding-left: 2vmin;
+}
+.link-text {
+  text-decoration: none;
+  color: rgb(43, 43, 43);
+}
