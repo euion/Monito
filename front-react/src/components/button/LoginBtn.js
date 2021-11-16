@@ -20,7 +20,7 @@ class LoginBtn extends React.Component {
     return (
       <div>
         <button onClick={this.changeLoginbtn}>
-          <p>{this.state.isBtnOn ? "login" : "logout"}</p>
+          <p>{this.state.isBtnOn ? "login/signup" : "logout"}</p>
         </button>
       </div>
     );

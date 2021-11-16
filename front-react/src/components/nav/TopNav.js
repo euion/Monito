@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Switch } from "react-router-dom";
 import LoginBtn from "../button/LoginBtn";
 import "../../css/TopNav.css";
+
 class TopNav extends React.Component {
   render() {
     return (
