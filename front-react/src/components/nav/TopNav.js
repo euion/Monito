@@ -27,7 +27,7 @@ class TopNav extends React.Component {
               </Link>
             </li>
             <li>
-              <Link to="#" className="link-text">
+              <Link to="UserPageMain" className="link-text">
                 마이페이지
               </Link>
             </li>
