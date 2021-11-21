@@ -75,3 +75,22 @@
     margin: 0px 0px 10px -650px;
     font-size: 24px;
 }
+
+/* usermeasurement css */
+.usermeasurementtext{
+    text-align: center;
+    font-size: 24px;
+    color: #5F9A97;
+    font-weight: bold;
+}
+
+.usermeasurementbox{
+    text-align: center;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    background-color: rgb(247, 247, 247);
+    width: 500px;
+    height: 400px;
+}

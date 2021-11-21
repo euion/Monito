@@ -29,3 +29,10 @@
 <ul>
 <li>login/signup js파일만 일단 만들어 둠</li>
 </ul>
+
+<br>
+[21-11-21 개발상황]
+<ul>
+<li>UserPageEdit, UserPageMain, UserMeasuerment.js</li>
+<li>mypage관련 페이지들 app.js에 라우터 연결</li>
+</ul>
