@@ -94,3 +94,16 @@
     width: 500px;
     height: 400px;
 }
+
+.usermeasurementsidebar{
+    margin: 5px;
+    top: 120px;
+    background-color: rgb(232, 229, 224);
+    position: relative;
+    border-radius: 20px;
+    width: 24vh;
+    height: 30vh;
+    margin-bottom: 50px;
+    font-size: 18px;
+    line-height: 4.5vh;
+  }
