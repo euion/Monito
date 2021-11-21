@@ -45,13 +45,12 @@
   .block{
     margin: 5px;
     left: 5%;
-    top: 20px;
     background-color: rgb(232, 229, 224);
     position: relative;
     border-radius: 20px;
     width: 180vh;
     height: 80vh;
-    margin-bottom: 50px;
+    
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -89,3 +88,11 @@
     background-color: rgb(255, 185, 185);
     
   }
+
+  .footer{
+
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}

@@ -55,7 +55,7 @@ function CamButton() {
   };
 
   return (
-    <>
+    <div>
       <div className="title" onClick={() => startOrStop()}>
         {playing ? "학습중입니다." : "학습을 중지했습니다."}{" "}
       </div>
@@ -71,7 +71,12 @@ function CamButton() {
         <div id="subject_block">데이터베이스</div>
         <button id="btn_add">추가하기</button>
       </div>
-    </>
+      <div className="footer">
+        footer
+      </div>
+    </div>
+      
+    
   );
 }
 
