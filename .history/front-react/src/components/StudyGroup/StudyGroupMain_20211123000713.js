@@ -16,7 +16,7 @@ class StudyGroupMain extends React.Component {
         </div>
         <div className="block">
           <div className="groupBox">
-            <Link to="/StudyGroupCamera" className="link-text">
+            <Link to="/StudyGroup1" className="link-text">
               스터디그룹1
             </Link>
           </div>
