@@ -9,7 +9,7 @@ class MainCamera extends React.Component {
       <div>
         <TopNav />
         <Link to="/">
-          <h1 style={{textAlign:"center",}}>Monito</h1>
+          <h1 style={{ textAlign: "center" }}>Monito</h1>
         </Link>
         <CamButton />
       </div>

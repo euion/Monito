@@ -4,6 +4,7 @@ import MainStartBtn from "../button/MainStartBtn";
 import TopNav from "../nav/TopNav";
 
 import "../../css/Main.css";
+import DefaultFooter from "../nav/DefaultFooter";
 
 class Main extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class Main extends React.Component {
             <MainStartBtn />
           </div>
         </div>
+        <DefaultFooter />
       </div>
     );
   }

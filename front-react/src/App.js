@@ -8,8 +8,10 @@ import Signup from "./components/login_signup/signup";
 import UserMeasurement from "./components/mypage/UserMeasurement";
 import UserPageEdit from "./components/mypage/UserPageEdit";
 import UserPageMain from "./components/mypage/UserPageMain";
-import StudyGroup from "./components/StudyGroup/StudyGroup";
-import StudyGroup1 from "./components/StudyGroup/StudyGroup1";
+import StudyGroupMain from "./components/StudyGroup/StudyGroupMain";
+import StudyGroupCamera from "./components/StudyGroup/StudyGroupCamera";
+import UserPlanner from "./components/planner/UserPlanner";
+import UserCalendar from "./components/planner/UserCalendar";
 
 function App() {
   return (
@@ -22,8 +24,10 @@ function App() {
         <Route path="/UserMeasurement" element={<UserMeasurement />} />
         <Route path="/UserPageEdit" element={<UserPageEdit />} />
         <Route path="/UserPageMain" element={<UserPageMain />} />
-        <Route path="/StudyGroup" element={<StudyGroup />} />
-        <Route path="/StudyGroup1" element={<StudyGroup1 />} />
+        <Route path="/StudyGroupMain" element={<StudyGroupMain />} />
+        <Route path="/StudyGroupCamera" element={<StudyGroupCamera />} />
+        <Route path="/UserPlanner" element={<UserPlanner />} />
+        <Route path="/UserCalendar" element={<UserCalendar />} />
       </Routes>
     </div>
   );

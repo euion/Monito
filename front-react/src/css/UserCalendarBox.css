@@ -1,0 +1,18 @@
+.user-box-container {
+  background-color: #f0ede6;
+  margin: 0 10% 10% 10%;
+  padding: 2%;
+  border-radius: 20px;
+  height: 60vmin;
+  box-shadow: 5px 5px 15px rgb(211, 211, 211);
+}
+
+@media screen and (min-width: 1000px) {
+  .user-box-container {
+    background-color: #f0ede6;
+    margin: 0 10% 10% 10%;
+    padding: 2%;
+    border-radius: 20px;
+    height: 68vmin;
+  }
+}

@@ -25,5 +25,16 @@ ul {
 }
 .link-text {
   text-decoration: none;
+  color: rgb(80, 78, 78);
+  font-size: medium;
+}
+.link-text:hover {
+  text-decoration: none;
   color: rgb(43, 43, 43);
+  font-size: medium;
+  font-weight: bold;
+}
+.footer-container {
+  text-align: center;
+  color: rgb(172, 168, 168);
 }

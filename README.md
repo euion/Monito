@@ -43,3 +43,10 @@
 <li>StudyGroup.js와 예시로 만든 StudyGroup1.js생성</li>
 <li>StudyGroup1.js의 각 방은 간단한 프론트만 설계함 CRUD필요</li>
 </ul>
+
+<br>
+[21-11-22 개발상황(임의연)]
+<ul>
+<li>StudyGroup.js,StudyGroup1.js 명칭 회의때 결정한대로 변경 </li>
+<li>UserClandar.js UserPlanner.js, DefaultFooter.js 생성 </li>
+</ul>
