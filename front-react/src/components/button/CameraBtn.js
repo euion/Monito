@@ -66,9 +66,11 @@ function CamButton() {
           {playing ? "Stop" : "Start"}{" "}
         </button>
 
-        <div className="time_block">총 공부시간 : 01:23:42</div>
-
-        <div id="subject_block">데이터베이스</div>
+        <div className="right_block">
+          <div className="time_block">총 공부시간 : 01:23:42</div>
+          <div id="subject_block">데이터베이스</div>
+        </div>
+        
         <button id="btn_add">추가하기</button>
       </div>
       <div className="footer">
