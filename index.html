@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <title>monito</title>
+
+  <script>
+      
+      var time = 0;
+      var running = 0;
+      var timerid = 0;
+      function startPause() {
+          if (running == 0) {
+              
+              //시작버튼
+              running = 1;
+              startCamera();
+              increment();
+              document.getElementById('stopTime').innerHTML="";
+              document.getElementById("start").innerHTML = "중지";
+              document.getElementById("startPause").style.backgroundColor = "red";
+              document.getElementById("startPause").style.borderColor = "red";
+
+          }
+          else {
+              //일시정시버튼
+              running = 0;
+              stopCamera();
+              clearTimeout(timerid);
+              var date = new Date();
+              var nowDate = date.getDate();
+              var nowMonth = date.getMonth() + 1;
+              var hour = date.getHours();
+              if(hour<10){
+                  hour = '0'+hour;
+              }
+              var min = date.getMinutes();
+              if(min<10){
+                  min = '0'+min;
+              } 
+              var sec = date.getSeconds();
+              if(sec<10){
+                  sec = '0'+sec;
+              }
+              // document.getElementById('stopTime').innerHTML= "일시정지  "+nowMonth+"/"+nowDate+" "+hour+":"+min+":"+sec;
+              document.getElementById("start").innerHTML = "시작";
+              document.getElementById("startPause").style.backgroundColor = "#e6b771";
+              document.getElementById("startPause").style.borderColor = "#e6b771";
+          }
+      }
+      //리셋
+      function reset() {
+          stopCamera();
+          running = 0;
+          time = 0;
+          clearTimeout(timerid);
+          document.getElementById('stopTime').innerHTML="";
+          document.getElementById("start").innerHTML = "시작";
+          document.getElementById("output").innerHTML = "<b>공부시간 : 00:00:00</b>";
+          document.getElementById("startPause").style.backgroundColor = "#e6b771";
+          document.getElementById("startPause").style.borderColor = "#e6b771";
+      }
+      //타이머 시간측정 
+      function increment() {
+          if (running == 1) {
+              timerid = setTimeout(function () {
+                  time++;
+                  var hours = Math.floor(time / 3600 );
+                  var mins = Math.floor(time % 3600 / 60 );
+                  var secs = time % 3600 % 60;
+                  if (hours < 10) {
+                      hours = "0" + hours;
+                  }
+                  if (mins < 10) {
+                      mins = "0" + mins;
+                  }
+                  if (secs < 10) {
+                      secs = "0" + secs;
+                  }
+                  document.getElementById("output").innerHTML = "<b>공부시간 : "+hours + ":" + mins + ":" + secs+"</b>";
+                  increment();
+              }, 1000)
+          }
+      }
+
+  </script>
+    
+</head>
+<body>
+  <div class="cam_title">
+    모니토
+  </div>
+
+  <h1>&nbsp;</h1>
+
+  <div class="block1">
+    <div id="container">
+      <canvas class="center-block" id="canvasOutput" width=640; height=480;></canvas>
+      <div>
+        <div class="text-center">
+          cam: <input type="checkbox" id="face" name="classifier" value="face" checked>
+        </div>
+        <button id="startPause" onclick="startPause()"><b id="start">시작</b></button>
+      </div>
+
+    </div>
+
+    
+    <div class="invisible">
+      <!-- 비디오가 기본적으로 있는데 숨겨뒀다가 체크하면 나오도록 해뒀음 -->
+      <video id="video" class="hidden">Your browser does not support the video tag.</video>
+    </div>
+    
+    
+    <div class="right_block">
+      <div class="time_block">
+        
+          <button onclick="reset()" id="reset">리셋</button>
+          <h1 id="stopTime"></h1>
+          <h1 id="breaktime"></h1>
+        <center>
+          <div id="output">공부시간 : 00:00:00
+          
+          </div>
+        </center>
+        
+      </div>
+      
+      
+      <div id="subject_block">데이터베이스</div>
+
+      
+      <button id="btn_add">추가하기</button>
+    </div>
+
+  </div>
+  
+  <!-- <ul id="list">
+    <li></li>
+  </ul> -->
+
+  <!-- 크롬, 파이어폭스, 등등 RTC 적용 -->
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <!-- 차원 계산값 최대 tensor까지 -->
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <!-- 데이터 클라우드 저장값 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+  <script>
+    var Module = {
+      // opencv 계산값 불러온거
+       wasmBinaryFile: 'https://huningxin.github.io/opencv.js/build/wasm/opencv_js.wasm',
+      preRun: [function() {
+        Module.FS_createPreloadedFile('/', 'haarcascade_eye.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_eye.xml', true, false); //눈 데이터 계산값
+        Module.FS_createPreloadedFile('/', 'haarcascade_frontalface_default.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml', true, false); //전면 얼굴 데이터 계산값
+        Module.FS_createPreloadedFile('/', 'haarcascade_profileface.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_profileface.xml', true, false); //얼굴 계산값 추가
+      }],
+      _main: function() {opencvIsReady();} //여기서 부터 시작
+    };
+  </script>
+  <!-- wasmBinaryFile 변수에 불러온 계산값 글로벌로 적용시킴 -->
+  <script src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js"></script>
+  <!-- 이건 내가 만든거 -->
+  <script src="index.js"></script>
+  <div class="footer">
+    footer
+  </div>
+</body>
+</html>
